@@ -9,9 +9,15 @@ node_modules
 
 # Log files
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+**/*.log
+
+# Test Files
+tests/**/coverage/
+tests/e2e/reports
+selenium-debug.log
 
 # Editor directories and files
 .idea
@@ -20,4 +26,10 @@ pnpm-debug.log*
 *.ntvs*
 *.njsproj
 *.sln
+*.local
 *.sw?
+
+# Generated Configuration
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
