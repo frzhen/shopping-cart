@@ -16,18 +16,18 @@ const actions = {
             commit("UPDATE_CART_ITEMS", response.data);
         }).catch((error) => {console.log(error)});
     },
-    addCartItems ({ commit }, cartItem) {
+    addCartItem ({ commit }, cartItem) {
       axios.post("api/cart", cartItem).then((response) => {
           commit("UPDATE_CART_ITEMS", response.data);
       }).catch((error) => {console.log(error)});
     },
-    removeCartItems ({ commit }, cartItem) {
+    removeCartItem ({ commit }, cartItem) {
       axios.post("api/cart/delete", cartItem).then((response) => {
          commit("UPDATE_CART_ITEMS", response.data);
       }).catch((error) => {console.log(error)});
     },
     removeAllCartItems ({ commit }) {
-      axios.post("api/cart/delete").then((response)=>{
+      axios.post("api/cart/delete/all").then((response)=>{
           commit("UPDATE_CART_ITEMS", response.data);
       }).catch((error) => {console.log(error)});
     },

@@ -2,7 +2,7 @@
   <div class="block">
     <div class="card">
       <div class="card-header">
-        <div class="card-header-title has-text-primary">
+        <div class="card-header-title has-text-grey">
           Product List
         </div>
         <div class="card-header-icon">

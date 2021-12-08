@@ -12,7 +12,7 @@
       <div class="card-footer mr-5 is-justify-content-flex-end">
         <div class="title is-6 has-text-primary my-2 mr-6">${{ productItem.price }}</div>
         <div class="icon has-text-primary my-1">
-          <em class="fas fa-cart-plus"></em>
+          <em class="fas fa-cart-plus" @click="addCartItem(productItem)"></em>
         </div>
       </div>
     </div>
@@ -20,11 +20,23 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "ProductListItem",
-  props: ["productItem"]
+  props: ["productItem"],
+  methods: {
+    ...mapActions({
+      addCartItem: 'cart/addCartItem',
+    })
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+div>em {
+  &:hover {
+    color: orange;
+  }
+}
 </style>
