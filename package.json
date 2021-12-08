@@ -16,6 +16,7 @@
     "bulma": "^0.9.3",
     "concurrently": "^6.4.0",
     "core-js": "^3.19.3",
+    "simple-line-icons": "^2.5.5",
     "vue": "^3.1.0",
     "vuex": "^4.0.0",
     "webpack": "^5.0.0"

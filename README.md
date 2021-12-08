@@ -1,4 +1,8 @@
 # shopping-cart
+## Prerequisites
+* Install concurrently: `pnpm add --save concurrently`;
+* Install fontawesome: `pnpm add --save @fortawesome/fontawesome-free`;
+* Install bulma: `pnpm add --save bulma`
 
 ## Project setup
 ```

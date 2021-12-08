@@ -2,8 +2,13 @@
   <div class="block">
     <div class="card">
       <div class="card-header">
-        <div class="card-header-title">
+        <div class="card-header-title has-text-primary">
           Product List
+        </div>
+        <div class="card-header-icon">
+          <span class="icon has-text-primary">
+            <em class="icon-layers"></em>
+          </span>
         </div>
       </div>
       <div class="card-content">

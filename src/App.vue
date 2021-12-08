@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <div class="block">
+  <div class="container mx-6 my-6">
     <div class="columns">
       <div class="column is-9">
         <ProductList />
@@ -26,14 +26,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+html, body,{
+  background-color: #E6E9EE;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background-color: lightgray;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
