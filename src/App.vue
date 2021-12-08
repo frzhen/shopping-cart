@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="block">
+    <div class="columns">
+      <div class="column is-8">
+        <ProductList />
+      </div>
+      <div class="column is-4">
+        <CartList />
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CartList from './components/cart/CartList';
+import ProductList from './components/product/ProductList';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CartList,
+    ProductList,
   }
 }
 </script>
