@@ -20,7 +20,7 @@
       <div class="card-footer">
         <div class="container has-text-weight-bold has-text-right mr-5 my-1">
           <p># of products:
-            <span>4</span></p>
+            <span>{{ productTotal }}</span></p>
         </div>
       </div>
     </div>
@@ -51,11 +51,11 @@ export default {
     ...mapGetters({
         // map this.productItems to this.$store.product.getters.productItems
         productItems: 'product/productItems',
+        productTotal: 'product/productTotal'
   }),
   },
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
 </style>
