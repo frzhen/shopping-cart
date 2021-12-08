@@ -1,4 +1,4 @@
-# shopping-cart
+# shopping-cart: Demo Project for Vuex implementation
 ## Prerequisites
 * Install concurrently: `pnpm add --save concurrently`;
 * Install fontawesome: `pnpm add --save @fortawesome/fontawesome-free`;
@@ -23,6 +23,16 @@ pnpm run build
 ```
 pnpm run lint
 ```
+
+```mermaid
+graph TD;
+    id1(app)-->id2[CardList]
+    id1(app)-->id3[ProductList]
+    id2[CardList]-->id4[CardListItem]
+    id3[ProductList]-->id5[ProductListItem]
+```
+
+![](Selected.png)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
