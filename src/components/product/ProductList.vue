@@ -12,7 +12,16 @@
         </div>
       </div>
       <div class="card-content">
-        <ProductListItem />
+        <ProductListItem
+          v-for="productItem in productItems"
+          :key="productItem.id"
+          :productItem="productItem" />
+      </div>
+      <div class="card-footer">
+        <div class="container has-text-weight-bold has-text-right mr-5 my-1">
+          <p># of products:
+            <span>4</span></p>
+        </div>
       </div>
     </div>
   </div>
@@ -20,13 +29,31 @@
 
 <script>
 import ProductListItem from '@/components/product/ProductListItem';
+import { mapGetters } from 'vuex';
 
 export default {
   name: "ProductList",
   components: {
     ProductListItem
-  }
-}
+  },
+  // data() {
+  //   return {
+  //     productItems: [],
+  //   }
+  // },
+  created() {
+    this.$store.dispatch('product/getProductItems');
+  },
+  computed: {
+    // productItems() {
+    //   return this.$store.product.getters.productItems;
+    // }
+    ...mapGetters({
+        // map this.productItems to this.$store.product.getters.productItems
+        productItems: 'product/productItems',
+  }),
+  },
+};
 </script>
 
 <style scoped>
