@@ -37,7 +37,7 @@
           </div>
           <div class="column has-text-right my-1">
             <button class="button is-info is-inverted is-size-7 px-2 py-0 my-0 mx-0"
-                    @click="removeAllCartItems()">
+                    @click="removeAllCartItems">
               <em class="fas fa-trash-alt mr-1" ></em>
               <span>Remove-all</span>
             </button>
