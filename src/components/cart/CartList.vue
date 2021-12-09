@@ -48,7 +48,8 @@
     </div>
     <div class="card-footer">
       <div class="container mx-4 my-4 has-text-centered">
-        <button class="button is-success is-outlined">
+        <button class="button is-success is-outlined"
+          @click="checkoutCart">
           Checkout (<span class="has-text-weight-bold">$</span>
           <span class="has-text-weight-bold has-text-danger">
           {{ cartTotal }}
@@ -83,6 +84,7 @@ export default {
   methods: {
     ...mapActions({
       removeAllCartItems: 'cart/removeAllCartItems',
+      checkoutCart: 'cart/checkoutCart',
     }),
   }
 }

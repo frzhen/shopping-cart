@@ -6,7 +6,7 @@ const state = {
 };
 
 const mutations = {
-    UPDATE_PRODUCT_ITEMS (state, payload) {
+    [types.UPDATE_PRODUCT_ITEMS] (state, payload) {
         state.productItems = payload;
     }
 };

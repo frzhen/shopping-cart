@@ -2,12 +2,16 @@ import axios from 'axios';
 import * as types from './mutation-types';
 
 const state = {
-    cartItems: []
+    cartItems: [],
+    checkout: false
 };
 
 const mutations = {
     [types.UPDATE_CART_ITEMS] (state, payload) {
         state.cartItems = payload;
+    },
+    CHECKOUT_CART (state) {
+        state.checkout = true;
     }
 };
 
@@ -31,6 +35,11 @@ const actions = {
       axios.post("api/cart/delete/all").then((response)=>{
           commit(types.UPDATE_CART_ITEMS, response.data);
       }).catch((error) => {console.log(error)});
+    },
+    checkoutCart({ commit }, cart) {
+        axios.post('/api/cart/checkout', cart).then((response) => {
+            commit(types.CHECKOUT_CART,response.data);
+        }).catch((error) => {console.log(error)});
     },
 };
 

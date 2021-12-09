@@ -80,6 +80,15 @@ app.post('/cart/delete/all', (req, res) => {
     });
   });
 });
+// fake checkout with delete all action
+app.post('/cart/checkout', (req, res) => {
+    fs.readFile(CART_DATA_FILE, () => {
+        let emptyCart = [];
+        fs.writeFile(CART_DATA_FILE, JSON.stringify(emptyCart, null, 4), () => {
+            res.json(emptyCart);
+        });
+    });
+});
 
 app.listen(app.get('port'), () => {
   console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
