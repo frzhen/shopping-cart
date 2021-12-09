@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-  <div class="container mx-6 my-6">
+  <div class="container mt-6">
     <div class="columns">
-      <div class="column is-9">
+      <div class="column is-three-quarters">
         <ProductList />
       </div>
-      <div class="column is-3">
+      <div class="column">
         <CartList />
       </div>
     </div>
