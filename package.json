@@ -1,6 +1,8 @@
 {
   "name": "shopping-cart",
+  "description": "Demo project w/ Vuex and vue-router",
   "version": "1.0.0",
+  "author": "Fred Zhen",
   "private": true,
   "scripts": {
     "start": "concurrently \"pnpm run server\" \"pnpm run serve\"",
@@ -18,6 +20,7 @@
     "core-js": "^3.19.3",
     "simple-line-icons": "^2.5.5",
     "vue": "^3.1.0",
+    "vue-router": "4",
     "vuex": "^4.0.0",
     "webpack": "^5.0.0"
   },
