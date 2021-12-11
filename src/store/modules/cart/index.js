@@ -3,14 +3,14 @@ import actions from './actions';
 import getters from './getters';
 
 
-const index = {
+const state = {
     cartItems: [],
     checkout: false
 };
 
 const cartModule = {
     namespaced: true,
-    state: index,
+    state,
     mutations,
     actions,
     getters

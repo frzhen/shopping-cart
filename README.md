@@ -1,4 +1,4 @@
-# shopping-cart: Demo Project for Vuex implementation
+# shopping-cart: Demo Project for Vuex and vue-router implementation
 ## Prerequisites
 * Install concurrently: `pnpm add --save concurrently`;
 * Install fontawesome: `pnpm add --save @fortawesome/fontawesome-free`;
