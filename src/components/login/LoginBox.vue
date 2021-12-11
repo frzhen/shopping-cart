@@ -12,15 +12,15 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'Login',
+  name: 'LoginBox',
   computed: {
-    ...mapGetters([
-      'loading',
-    ])
+    ...mapGetters({
+      loading: 'login/loading'
+    }),
   },
   methods: {
     login() {
-      this.$store.dispatch("login").then(() => {
+      this.$store.dispatch("login/login").then(() => {
         this.$router.push({ path: '/products' });
       });
     }
