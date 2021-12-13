@@ -1,30 +1,29 @@
 import axios from "axios";
-import * as types from "@/store/modules/cart/mutation-types";
 
 const actions = {
     getCartItems ({ commit }, token) {
         axios.get(`api/cart?token=${token}`).then((response) => {
-            commit(types.UPDATE_CART_ITEMS, response.data);
+            commit('UPDATE_CART_ITEMS', response.data);
         }).catch((error) => {console.log(error)});
     },
     addCartItem ({ commit }, cartItem) {
-        axios.post("api/cart/", cartItem).then((response) => {
-            commit(types.UPDATE_CART_ITEMS, response.data);
+        axios.post('api/cart/add', cartItem).then((response) => {
+            commit('UPDATE_CART_ITEMS', response.data);
         }).catch((error) => {console.log(error)});
     },
     removeCartItem ({ commit }, cartItem) {
-        axios.post("api/cart/delete", cartItem).then((response) => {
-            commit(types.UPDATE_CART_ITEMS, response.data);
+        axios.post('api/cart/delete', cartItem).then((response) => {
+            commit('UPDATE_CART_ITEMS', response.data);
         }).catch((error) => {console.log(error)});
     },
     removeAllCartItems ({ commit }) {
-        axios.post("api/cart/delete/all").then((response)=>{
-            commit(types.UPDATE_CART_ITEMS, response.data);
+        axios.post('api/cart/delete/all').then((response)=>{
+            commit('UPDATE_CART_ITEMS', response.data);
         }).catch((error) => {console.log(error)});
     },
     checkoutCart({ commit }) {
-        axios.post("/api/cart/checkout").then((response) => {
-            commit(types.CHECKOUT_CART, response.data);
+        axios.post('/api/cart/checkout').then((response) => {
+            commit('CHECKOUT_CART', response.data);
         }).catch((error) => {console.log(error)});
     },
 };

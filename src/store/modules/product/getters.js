@@ -5,6 +5,9 @@ const getters = {
             return acc+1;
         }, 0).toFixed(0);
     },
+    productItemFromId: (state) => (id) => {
+        return state.productItems.find(productItem => productItem.id === id);
+    },
 };
 
 export default getters;

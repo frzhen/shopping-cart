@@ -1,32 +1,50 @@
 <template>
-  <section id="product-item" class="box" v-if="productItem">
-    <span class="return-icon" @click="$router.go(-1)">
-      <em class="fa fa-arrow-left is-primary"></em>
-    </span>
-    <div class="product-item__details">
-      <h1 class="title is-4">
+  <div class="card" v-if="productItem">
+    <div class="card-header">
+      <div class="card-header-icon">
+        <span class="return-icon" @click="$router.go(-1)">
+          <em class="fa fa-arrow-left is-primary mt-3 mx-2"></em>
+        </span>
+      </div>
+      <div class="card-header-title is-centered">
         <span>{{ productItem.title }}</span>
-        <span class="tag product-item__tag">
-          {{ productItem.product_type }}
+      </div>
+      <div class="card-header-icon">
+        <span
+            v-for="type in productItem.product_type"
+            :key="type"
+            class="tag is-info is-rounded is-light mx-1">
+              {{ type }}
         </span>
-      </h1>
-      <p class="product-item__description">{{ productItem.description }}</p>
-      <p class="product-item__created_at">
-        Founded:
-        <span class="has-text-weight-bold">
-          {{ productItem.created_at }}
-        </span>
-      </p>
-      <button
-        class="button is-primary product-item__button"
-        @click="addAndGoToCart(productItem)">
-          Add to Cart
-      </button>
+      </div>
     </div>
-    <div class="product-item__image">
-      <img :src="require('../../assets/' + productItem.image_tag)" alt=""/>
+    <div class="card-content">
+      <div class="columns is-vcentered">
+        <div class="column is-half has-text-start ">
+          <div class="my-6 py-6 ml-6">
+            {{ productItem.description }}
+          </div>
+          <div class="my-6 py-6 ml-6">
+            Founded:
+            <span class="has-text-weight-bold">
+            {{ productItem.created_at }}
+          </span>
+          </div>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img :src="require('../../assets/images/' + productItem.image_tag)" alt=""/>
+        </div>
+      </div>
     </div>
-  </section>
+    <div class="card-footer">
+      <div class="card-footer-item">
+        <button class="button is-primary product-item__button"
+            @click="addAndGoToCart(productItem)">
+              Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,61 +53,19 @@ export default {
   props: ['id'],
   computed: {
     productItem() {
-      return this.$store.getters.productItemFromId(Number(this.id));
+      return this.$store.getters['product/productItemFromId'](Number(this.id));
     }
   },
   methods: {
-    addAndGoToCart(productItem) {
-      this.$store
-        .dispatch('addCartItem', productItem)
+    addAndGoToCart(cartItem) {
+      this.$store.dispatch('cart/addCartItem', cartItem)
         .then(() => {
           this.$router.push('/cart');
-        });
-    }
+        }).catch((error) => {console.log(error)});
+    },
   }
 }
 </script>
 
 <style scoped>
-#product-item {
-  display: flex;
-  width: 100%;
-  position: relative;
-}
-
-.return-icon {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  color: #00d1b2;
-  cursor: pointer;
-}
-
-.product-item__details {
-  max-width: 50%;
-  padding-left: 10px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.product-item__image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.product-item__description {
-  padding-bottom: 10px;
-}
-
-.product-item__created_at {
-  font-size: 12px;
-  padding-bottom: 10px;
-}
-
-.product-item__button {
-  max-width: 150px;
-}
 </style>

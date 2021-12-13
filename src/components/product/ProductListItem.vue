@@ -1,9 +1,12 @@
 <template>
-  <div class="block">
+  <div class="block" v-if="productItem">
     <div class="card">
       <div class="card-header">
         <div class="card-header-title">
-          {{ productItem.title }}
+          <router-link
+              :to="'/products/' + productItem.id">
+                {{ productItem.title }}
+          </router-link>
         </div>
       </div>
       <div class="card-content">
@@ -12,7 +15,7 @@
             <p class="has-text-left">{{ productItem.description }}</p>
           </div>
           <div class="column has-text-centered">
-            <img :src="require('../../assets/images/' + productItem.image_tag)"
+            <img :src="require('../../assets/images/' + productItem.image_tag.toString())"
                  class="thumbnail" alt="" />
           </div>
         </div>

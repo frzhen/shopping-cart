@@ -38,18 +38,30 @@ export default {
   },
   created() {
     const token = localStorage.getItem("token");
-    this.$store.dispatch('product/getProductItems', token);
+    if (token) {
+      this.updateInitialState(token);
+    }
   },
   computed: {
-    // productItems() {
-    //   return this.$store.product.getters.productItems;
-    // }
     ...mapGetters({
       // map this.productItems to this.$store.product.getters.productItems
       productItems: 'product/productItems',
       productTotal: 'product/productTotal',
+      token: 'login/token',
   }),
   },
+  watch: {
+    token() {
+      if (this.token) {
+        this.updateInitialState(this.token);
+      }
+    }
+  },
+  methods: {
+    updateInitialState(token) {
+      this.$store.dispatch('product/getProductItems', token);
+    }
+  }
 };
 </script>
 

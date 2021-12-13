@@ -2,8 +2,18 @@
   <div id="app">
     <div class="container mt-6 px-6">
       <div class="container mx-6 mb-3">
-        <div class="navbar px-5 py-3">
+        <div v-if="$route.path !== '/login'"
+             class="navbar px-5 py-3">
           <div class="navbar-menu">
+            <div class="navbar-start">
+              <div class="nav-item">
+                <button
+                    @click="logout"
+                    class="button is-primary is-outlined">
+                  Logout
+                </button>
+              </div>
+            </div>
             <div class="navbar-end">
               <div class="nav-item">
                 <router-link class="button is-success is-inverted" to="/products">
@@ -14,7 +24,7 @@
               <div class="nav-item">
                 <router-link class="button is-info is-inverted" to="/cart">
                   <em class="nav-icon fas fa-shopping-cart mr-2">
-                    <span v-if="(cartQuantity !== 0 && cartQuantity !== '0')" class="badge">{{ cartQuantity }}</span>
+                    <span v-if="cartQuantity !== 0 && cartQuantity !== '0'" class="badge">{{ cartQuantity }}</span>
                   </em>
                 </router-link>
               </div>
@@ -36,12 +46,35 @@ export default {
   name: 'App',
   created() {
     const token = localStorage.getItem("token");
-    this.$store.dispatch("cart/getCartItems", token);
+    if (token) {
+      this.updateInitialState(token);
+    }
+  },
+  watch: {
+    token() {
+      if (this.token) {
+        this.updateInitialState(this.token);
+      }
+    }
   },
   computed: {
     ...mapGetters({
+      token: 'login/token',
       cartQuantity: 'cart/cartQuantity',
     }),
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("login/logout")
+          .then (() => {
+            this.$router.push("/login")
+          }).catch((error) => {
+              console.log(error);
+          });
+    },
+    updateInitialState(token) {
+      this.$store.dispatch("cart/getCartItems", token);
+    },
   },
 }
 </script>

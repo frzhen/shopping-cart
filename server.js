@@ -74,7 +74,7 @@ app.get('/cart', authenticatedRoute, (req, res) => {
   });
 });
 
-app.post('/cart/', (req, res) => {
+app.post('/cart/add', (req, res) => {
   fs.readFile(CART_DATA_FILE, (err, data) => {
     const cartProducts = JSON.parse(data);
     const newCartProduct = {
@@ -83,7 +83,7 @@ app.post('/cart/', (req, res) => {
       description: req.body.description,
       price: req.body.price,
       image_tag: req.body.image_tag,
-      quantity: 1
+      quantity: 1, product_type: req.body.product_type
     };
     let cartProductExists = false;
     cartProducts.map((cartProduct) => {

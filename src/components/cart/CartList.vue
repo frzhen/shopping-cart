@@ -71,10 +71,10 @@ export default {
   components: {
     CartListItem
   },
-  created() {
-    const token = localStorage.getItem("token");
-    this.$store.dispatch("cart/getCartItems", token);
-  },
+  // created() {
+  //   const token = localStorage.getItem("token");
+  //   this.$store.dispatch("cart/getCartItems", token);
+  // },
   computed: {
     ...mapGetters({
       cartItems: 'cart/cartItems',
