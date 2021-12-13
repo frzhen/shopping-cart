@@ -10,6 +10,10 @@
         <em class="fas fa-arrow-circle-down mr-0" @click="removeCartItem(cartItem)"></em>
       </div>
     </div>
+    <div class="card-content has-text-centered">
+      <img :src="require('../../assets/images/' + cartItem.image_tag)"
+          class="thumbnail" alt="" />
+    </div>
     <div class="card-footer px-0 mx-3 is-justify-content-center">
       <div class="container my-1">
         <div class="columns">
@@ -47,5 +51,9 @@ div>em {
   &:hover {
     color: orange;
   }
+}
+img.thumbnail {
+  width: 100px;
+  height: 100px;
 }
 </style>

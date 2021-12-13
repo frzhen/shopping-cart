@@ -36,14 +36,9 @@ export default {
   components: {
     ProductListItem
   },
-  // data() {
-  //   return {
-  //     productItems: [],
-  //   }
-  // },
   created() {
-    this.token = localStorage.getItem("token");
-    this.$store.dispatch('product/getProductItems', this.token);
+    const token = localStorage.getItem("token");
+    this.$store.dispatch('product/getProductItems', token);
   },
   computed: {
     // productItems() {
