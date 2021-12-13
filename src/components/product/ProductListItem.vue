@@ -28,7 +28,7 @@ export default {
   methods: {
     ...mapActions({
       addCartItem: 'cart/addCartItem',
-    })
+    }),
   },
 }
 </script>

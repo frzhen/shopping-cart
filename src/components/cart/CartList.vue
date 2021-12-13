@@ -72,7 +72,8 @@ export default {
     CartListItem
   },
   created() {
-    this.$store.dispatch("cart/getCartItems");
+    const token = localStorage.getItem("token");
+    this.$store.dispatch("cart/getCartItems", token);
   },
   computed: {
     ...mapGetters({

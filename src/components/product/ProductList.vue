@@ -6,7 +6,7 @@
           Product List
         </div>
         <div class="card-header-icon">
-          <span class="icon has-text-primary">
+          <span class="icon has-text-grey">
             <em class="icon-layers"></em>
           </span>
         </div>
@@ -42,16 +42,17 @@ export default {
   //   }
   // },
   created() {
-    this.$store.dispatch('product/getProductItems');
+    this.token = localStorage.getItem("token");
+    this.$store.dispatch('product/getProductItems', this.token);
   },
   computed: {
     // productItems() {
     //   return this.$store.product.getters.productItems;
     // }
     ...mapGetters({
-        // map this.productItems to this.$store.product.getters.productItems
-        productItems: 'product/productItems',
-        productTotal: 'product/productTotal'
+      // map this.productItems to this.$store.product.getters.productItems
+      productItems: 'product/productItems',
+      productTotal: 'product/productTotal',
   }),
   },
 };
